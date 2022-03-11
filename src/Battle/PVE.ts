@@ -13,12 +13,21 @@ export default class PVE extends Battle {
     this.listEnemy = listEnemie;
   }
 
+  protected static atackEnemy(
+    playerAttacker: Monster | SimpleFighter, 
+    playerVictim: Monster | SimpleFighter, 
+  ): void {
+    if (playerAttacker.lifePoints > 0) {
+      playerAttacker.attack(playerVictim);
+    }
+  }
+
   fight(): number {
     let output = 0;
     while (!output) {
       this.listEnemy.forEach((enemy) => {
-        this.player1.attack(enemy);
-        enemy.attack(this.player1);
+        PVE.atackEnemy(this.player1, enemy);
+        PVE.atackEnemy(enemy, this.player1);
       });
       const allEnemyDeath = this.listEnemy
         .every((enemy) => enemy.lifePoints <= 0);
