@@ -19,11 +19,11 @@ export default class Monster implements SimpleFighter {
   }
 
   get strength(): number {
-    return this.strength;
+    return this._strength;
   }
 
   protected set strength(value: number) {
-    this.strength = value;
+    this._strength = value;
   }
 
   receiveDamage(attackPoints: number): number {
