@@ -1,4 +1,5 @@
-import { EnergyType, AttackType } from '../Energy';
+import { EnergyType } from '../Energy';
+import { AttackType } from '../AttackType';
 import Archetype from './Archetype';
 
 export default class Necromancer extends Archetype {
